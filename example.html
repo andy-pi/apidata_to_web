@@ -3,7 +3,7 @@
 <body>
 
 <h2>Try this as an example:</h2>
-https://api.tfl.gov.uk/StopPoint/490009109S/arrivals <br>
+490009109S<br>
 
 <p>
 <!-- Create an HTML button, and call the function when it is clicked -->
@@ -28,9 +28,9 @@ function callApi()
 		// for each bus returned
 		for (var i=0;i<parsed_data.length;i++)
 		    // append the relevant information to the formatted_data display string
-			formatted_data +=   "Bus number: " + parsed_data[i].lineName + \
-			                    " to " + parsed_data[i].destinationName + \
-			                    " will arrive in: " + (parsed_data[i].timeToStation/60).toFixed(0) + \
+			formatted_data +=   "Bus number: " + parsed_data[i].lineName +
+			                    " to " + parsed_data[i].destinationName + 
+			                    " will arrive in: " + (parsed_data[i].timeToStation/60).toFixed(0) +
 			                    " mins<br><br>";
 		// return this variable
 		return formatted_data;
@@ -51,7 +51,7 @@ function callApi()
 	};
 	
 	// create a variable and store the value of the input box in it
-	var api_url = document.getElementById('api_url').value;
+	var api_url = "https://api.tfl.gov.uk/StopPoint/" + document.getElementById('api_url').value + "/arrivals";
 	// clear the input box
 	document.getElementById('api_url').value="";
 	// make a GET request using the URL from the input box
